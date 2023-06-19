@@ -17,7 +17,7 @@ class FavoriteMovieSearchPresenter {
     this._latestQuery = latestQuery.trim();
 
     let foundMovies;
-    if (this.latestQuery.length > 0) {
+    if (this.latestQuery?.length > 0) {
       foundMovies = await this._favoriteMovies.searchMovies(this.latestQuery);
     } else {
       foundMovies = await this._favoriteMovies.getAllMovies();
