@@ -14,5 +14,16 @@ Scenario('showing empty liked movies', ({ I }) => {
 Scenario('liking one movie', ({ I }) => {
   I.see('Tidak ada film untuk ditampilkan', '.movie-item__not__found');
   I.amOnPage('/');
-  // … kita akan mengisi uji coba berikutnya …
+
+  I.seeElement('.movie__title a');
+  I.click(locate('.movie__title a').first());
+
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
+
+  I.amOnPage('/#/like');
+  I.waitForElement('.movie-item', 2);
+  I.seeElement('.movie-item');
+
+  pause();
 });
